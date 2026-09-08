@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tezlaRoofGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="50%" stop-color="#0066FF"/>
+      <stop offset="100%" stop-color="#051937"/>
+    </linearGradient>
+    <linearGradient id="tezlaTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#0066FF"/>
+    </linearGradient>
+    <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <g transform="translate(400, 140)">
+    <!-- House Roof Ribbon -->
+    <path d="M -130 10 L 0 -105 L 120 10 C 135 22 135 45 118 55 C 102 65 75 58 75 40 L 75 5 L 0 -55 L -75 5 C -82 12 -95 12 -105 5 L -130 -15 Z" fill="url(#tezlaRoofGrad)" filter="url(#cyanGlow)"/>
+    <path d="M 0 -105 L 120 10 L 100 28 L 0 -55 L -100 28 L -120 10 Z" fill="#00F0FF" opacity="0.6"/>
+    <!-- House Pillars & Outline -->
+    <path d="M -75 5 L -75 80 L -30 80 L -30 25 L 0 0 L 30 25 L 30 80 L 75 80 L 75 5" fill="none" stroke="url(#tezlaRoofGrad)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- 4 Pane Window -->
+    <rect x="-16" y="25" width="14" height="14" rx="2" fill="#00F0FF" opacity="0.9"/>
+    <rect x="2" y="25" width="14" height="14" rx="2" fill="#00F0FF" opacity="0.9"/>
+    <rect x="-16" y="43" width="14" height="14" rx="2" fill="#00F0FF" opacity="0.9"/>
+    <rect x="2" y="43" width="14" height="14" rx="2" fill="#00F0FF" opacity="0.9"/>
+    <!-- Wifi Arcs -->
+    <path d="M 85 -70 A 35 35 0 0 1 125 -30" fill="none" stroke="#00F0FF" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 100 -55 A 20 20 0 0 1 120 -35" fill="none" stroke="#0066FF" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="108" cy="-42" r="5" fill="#00F0FF"/>
+  </g>
+  <!-- TEZLA Typography -->
+  <text x="400" y="295" font-family="'Outfit', 'Inter', system-ui, sans-serif" font-weight="900" font-size="78" letter-spacing="18" text-anchor="middle" fill="#FFFFFF">
+    TEZLA
+  </text>
+
+  <!-- Subtitle Typography -->
+  <text x="400" y="340" font-family="'Inter', system-ui, sans-serif" font-weight="700" font-size="20" letter-spacing="14" text-anchor="middle" fill="#00F0FF">
+    ENGINEERING AND SOLUTIONS
+  </text>
+</svg>
