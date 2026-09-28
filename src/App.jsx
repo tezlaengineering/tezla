@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Preloader from './components/Preloader';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import IntroPhilosophy from './components/IntroPhilosophy';
-import SmartHomeExperience from './components/SmartHomeExperience';
-import ServicesSection from './components/ServicesSection';
-import WhyTezla from './components/WhyTezla';
-import HowItWorks from './components/HowItWorks';
-import ElectricalPlumbing from './components/ElectricalPlumbing';
-import ProjectTypes from './components/ProjectTypes';
-import QuoteEstimator from './components/QuoteEstimator';
-import AboutSection from './components/AboutSection';
-import BrandStatement from './components/BrandStatement';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import QuoteEstimator from './components/QuoteEstimator';
+import MobileQuickBar from './components/MobileQuickBar';
+
+// Pages
+import HomePage from './pages/HomePage';
+import SolutionsPage from './pages/SolutionsPage';
+import SmartHomePage from './pages/SmartHomePage';
+import ElectricalPlumbingPage from './pages/ElectricalPlumbingPage';
+import ProjectsPage from './pages/ProjectsPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -29,63 +29,90 @@ export default function App() {
   };
 
   return (
-    <div className="bg-[#050811] text-slate-100 min-h-screen relative font-['Inter'] selection:bg-cyan-500 selection:text-black">
-      {/* 1. Preloader */}
-      {loading && <Preloader onComplete={() => setLoading(false)} />}
+    <Router>
+      <div className="bg-[#050811] text-slate-100 min-h-screen relative font-['Inter'] selection:bg-cyan-500 selection:text-black pb-16 lg:pb-0">
+        
+        {/* 1. Preloader */}
+        {loading && <Preloader onComplete={() => setLoading(false)} />}
 
-      {/* Main Website Structure */}
-      {!loading && (
-        <>
-          {/* Header Navigation */}
-          <Navbar onOpenQuote={() => setIsQuoteOpen(true)} />
+        {/* 2. Main Web App */}
+        {!loading && (
+          <>
+            {/* Header Navigation */}
+            <Navbar onOpenQuote={() => setIsQuoteOpen(true)} />
 
-          {/* Homepage Sections Flow */}
-          <main>
-            {/* Hero Section */}
-            <Hero onOpenQuote={() => setIsQuoteOpen(true)} />
+            {/* Page Routes */}
+            <main>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <HomePage
+                      onOpenQuote={() => setIsQuoteOpen(true)}
+                      onSelectService={handleSelectService}
+                    />
+                  }
+                />
+                <Route
+                  path="/solutions"
+                  element={
+                    <SolutionsPage
+                      onOpenQuote={() => setIsQuoteOpen(true)}
+                      onSelectService={handleSelectService}
+                    />
+                  }
+                />
+                <Route
+                  path="/smart-home"
+                  element={
+                    <SmartHomePage
+                      onOpenQuote={() => setIsQuoteOpen(true)}
+                    />
+                  }
+                />
+                <Route
+                  path="/electrical-plumbing"
+                  element={
+                    <ElectricalPlumbingPage
+                      onOpenQuote={() => setIsQuoteOpen(true)}
+                    />
+                  }
+                />
+                <Route
+                  path="/projects"
+                  element={
+                    <ProjectsPage
+                      onOpenQuote={() => setIsQuoteOpen(true)}
+                    />
+                  }
+                />
+                <Route
+                  path="/about"
+                  element={<AboutPage />}
+                />
+                <Route
+                  path="/contact"
+                  element={<ContactPage />}
+                />
+              </Routes>
+            </main>
 
-            {/* Intro Philosophy: Technology That Feels Like Home */}
-            <IntroPhilosophy />
+            {/* Footer */}
+            <Footer />
 
-            {/* 3D Interactive Smart Home Experience */}
-            <SmartHomeExperience />
+            {/* Mobile Bottom Quick Action Bar */}
+            <MobileQuickBar onOpenQuote={() => setIsQuoteOpen(true)} />
 
-            {/* 6 Core Service Verticals */}
-            <ServicesSection onSelectService={handleSelectService} />
+            {/* Interactive Quote Calculator Modal */}
+            <QuoteEstimator
+              isOpen={isQuoteOpen}
+              onClose={() => setIsQuoteOpen(false)}
+              onProceedToContact={() => setIsQuoteOpen(false)}
+            />
+          </>
+        )}
 
-            {/* Why TEZLA Pillars */}
-            <WhyTezla />
-
-            {/* 6-Step How It Works Process */}
-            <HowItWorks />
-
-            {/* Heavy Electrical & Plumbing Engineering */}
-            <ElectricalPlumbing onOpenQuote={() => setIsQuoteOpen(true)} />
-
-            {/* Solutions for Every Space (Project Types) */}
-            <ProjectTypes onSelectProject={(pt) => setIsQuoteOpen(true)} />
-
-            {/* About TEZLA */}
-            <AboutSection />
-
-            {/* Fullscreen Cinematic Brand Statement */}
-            <BrandStatement onOpenQuote={() => setIsQuoteOpen(true)} />
-
-            {/* Interactive Contact & Lead Form */}
-            <ContactSection selectedServiceFromParent={selectedService} />
-          </main>
-
-          {/* Footer */}
-          <Footer />
-
-          {/* Interactive Quote Calculator Modal */}
-          <QuoteEstimator
-            isOpen={isQuoteOpen}
-            onClose={() => setIsQuoteOpen(false)}
-            onProceedToContact={() => setIsQuoteOpen(false)}
-          />
-        </>
-      )}
-    </div>
+      </div>
+    </Router>
   );
 }
