@@ -6,227 +6,190 @@ export default function ProjectTypes({ onSelectProject }) {
   const [activeFilter, setActiveFilter] = useState('All');
   const [activeLightboxImage, setActiveLightboxImage] = useState(null);
 
+  // Original Category Cards under "SOLUTIONS FOR EVERY SPACE" (Restored Previous High-Res Photos)
   const projectsCategories = [
     {
       title: 'HOMES',
       desc: 'Smart and secure homes designed around modern family lifestyles.',
-      image: '/assets/images/completed_cloudinary/tezla_home_1.jpg',
+      image: '/assets/images/smart_living_room.jpg',
       icon: Home,
       tag: 'RESIDENTIAL HOMES',
     },
     {
       title: 'VILLAS',
       desc: 'Integrated automation, security, electrical, and interior solutions for luxury premium residences.',
-      image: '/assets/images/completed_cloudinary/tezla_home_4.jpg',
+      image: '/assets/images/hero_smart_villa.jpg',
       icon: Building2,
       tag: 'LUXURY VILLAS',
     },
     {
       title: 'APARTMENTS',
       desc: 'Practical compact smart home automation and digital door lock solutions for urban living.',
-      image: '/assets/images/completed_cloudinary/tezla_home_7.jpg',
+      image: '/assets/images/smart_access_lock.jpg',
       icon: Home,
       tag: 'URBAN APARTMENTS',
     },
     {
       title: 'OFFICES',
       desc: 'Technology-driven office spaces that improve workplace efficiency, lighting, and access control.',
-      image: '/assets/images/completed_cloudinary/tezla_home_10.jpg',
+      image: '/assets/images/commercial_smart_office.jpg',
       icon: Briefcase,
       tag: 'WORKPLACE TECH',
     },
     {
       title: 'SHOPS',
       desc: 'Electrical, CCTV security, architectural lighting, and automation solutions for retail environments.',
-      image: '/assets/images/completed_cloudinary/tezla_home_12.jpg',
+      image: '/assets/images/cctv_security_tech.jpg',
       icon: ShoppingBag,
       tag: 'COMMERCIAL RETAIL',
     },
     {
       title: 'HOTELS & RESORTS',
       desc: 'Integrated smart room tech, master lighting keycards, and engineering solutions for hospitality.',
-      image: '/assets/images/completed_cloudinary/tezla_home_15.jpg',
+      image: '/assets/images/hero_smart_villa.jpg',
       icon: Hotel,
       tag: 'HOSPITALITY',
     },
     {
       title: 'COMMERCIAL BUILDINGS',
       desc: 'Complete engineering, power distribution, plumbing, and automation systems for multi-story spaces.',
-      image: '/assets/images/completed_cloudinary/tezla_home_18.jpg',
+      image: '/assets/images/electrical_automation.jpg',
       icon: Building2,
       tag: 'ENTERPRISE BUILDING',
     },
   ];
 
-  // All 18 Real Completed Home & Project Photos from TEZLA Cloudinary Collection
-  const completedCloudinaryHomes = [
+  // Completed Projects Showcase: 3 Real Completed Homes (using uploaded photos) + Generated Engineering Albums
+  const completedGallery = [
+    // Real Completed Home 1 (Cloudinary Photos 1-6)
     {
       id: 1,
-      title: 'Completed Luxury Smart Villa Project',
-      category: 'Villas',
+      title: 'Completed Project 01 — Grand Smart Villa',
+      category: 'Real Completed Homes',
       location: 'Kattappana, Kerala',
       image: '/assets/images/completed_cloudinary/tezla_home_1.jpg',
-      scope: 'Full Smart Home Automation, Mood Lighting Controls, Security CCTV',
-      tag: 'Completed Home',
+      scope: 'Full Home Automation, Facade Ambient Strip Lighting, Touch Switches',
+      year: '2026 Real Work',
     },
     {
       id: 2,
-      title: 'Architectural Modern Residence',
-      category: 'Homes',
-      location: 'Adimali, Kerala',
+      title: 'Completed Project 01 — Living & Mood Lighting',
+      category: 'Real Completed Homes',
+      location: 'Kattappana, Kerala',
       image: '/assets/images/completed_cloudinary/tezla_home_2.jpg',
-      scope: 'Complete Electrical Wiring, Smart Switches, Concealed Lighting',
-      tag: 'Completed Home',
+      scope: 'Cove Ceiling Lighting, Alexa Voice Control, Smart Panel Wiring',
+      year: '2026 Real Work',
     },
     {
       id: 3,
-      title: 'Hilltop Resort & Villa Automation',
-      category: 'Villas',
-      location: 'Munnar, Kerala',
+      title: 'Completed Project 01 — Exterior & Pool Lighting',
+      category: 'Real Completed Homes',
+      location: 'Kattappana, Kerala',
       image: '/assets/images/completed_cloudinary/tezla_home_3.jpg',
-      scope: 'Hospitality Smart Control, Exterior LED Lighting, Water Plumbing',
-      tag: 'Completed Resort',
+      scope: 'Automated Landscape Timers, Underwater Pool LEDs, Gate Access',
+      year: '2026 Real Work',
     },
+
+    // Real Completed Home 2 (Cloudinary Photos 7-12)
     {
       id: 4,
-      title: 'Premium Contemporary Residence',
-      category: 'Homes',
-      location: 'Thodupuzha, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_4.jpg',
-      scope: 'Smart Interior Lighting, Motorized Curtains, Digital Lock',
-      tag: 'Completed Home',
+      title: 'Completed Project 02 — Hillside Smart Residence',
+      category: 'Real Completed Homes',
+      location: 'Munnar, Kerala',
+      image: '/assets/images/completed_cloudinary/tezla_home_7.jpg',
+      scope: 'Motorized Drapery Tracks, Bedside Scene Controllers, CCTV 4K',
+      year: '2026 Real Work',
     },
     {
       id: 5,
-      title: 'Smart Lighting & Living Room Automation',
-      category: 'Interiors',
-      location: 'Kattappana, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_5.jpg',
-      scope: 'Scene & Atmosphere Lighting, Alexa/App Control, DB Panel',
-      tag: 'Smart Interior',
+      title: 'Completed Project 02 — Master Bedroom Automation',
+      category: 'Real Completed Homes',
+      location: 'Munnar, Kerala',
+      image: '/assets/images/completed_cloudinary/tezla_home_8.jpg',
+      scope: 'Architectural Warm LEDs, Smart Thermostatic Climate AC',
+      year: '2026 Real Work',
     },
     {
       id: 6,
-      title: 'Concealed Tech & Mood Strip Lighting',
-      category: 'Interiors',
-      location: 'Kumily, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_6.jpg',
-      scope: 'Architectural Cove Lighting, Touch Panel Switches, Audio Sync',
-      tag: 'Smart Interior',
+      title: 'Completed Project 02 — Main Switchgear & DB Board',
+      category: 'Real Completed Homes',
+      location: 'Munnar, Kerala',
+      image: '/assets/images/completed_cloudinary/tezla_home_9.jpg',
+      scope: 'Main DB Switchboard Wiring, Surge Earthing, Power Backup',
+      year: '2026 Real Work',
     },
+
+    // Real Completed Home 3 (Cloudinary Photos 13-18)
     {
       id: 7,
-      title: 'Modern Apartment Complex Automation',
-      category: 'Apartments',
-      location: 'Thodupuzha, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_7.jpg',
-      scope: 'Biometric Access Lock, Video Doorbell, Compact Smart Panel',
-      tag: 'Completed Apartment',
+      title: 'Completed Project 03 — Modern Architectural Villa',
+      category: 'Real Completed Homes',
+      location: 'Adimali, Kerala',
+      image: '/assets/images/completed_cloudinary/tezla_home_13.jpg',
+      scope: 'Smart Digital Lock Access, Video Intercom, Whole-House Lighting',
+      year: '2026 Real Work',
     },
     {
       id: 8,
-      title: 'Automated Facade & Exterior Lighting',
-      category: 'Villas',
-      location: 'Kattappana, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_8.jpg',
-      scope: 'Timer Facade Lighting, Garden Pathway LEDs, Perimeter CCTV',
-      tag: 'Completed Villa',
+      title: 'Completed Project 03 — Kitchen & Dining Tech',
+      category: 'Real Completed Homes',
+      location: 'Adimali, Kerala',
+      image: '/assets/images/completed_cloudinary/tezla_home_14.jpg',
+      scope: 'Smart Sockets, Under-Cabinet Ambient Lighting, Appliance Relays',
+      year: '2026 Real Work',
     },
     {
       id: 9,
-      title: 'Complete Electrical DB & Automation Board',
-      category: 'Electrical',
+      title: 'Completed Project 03 — Sanitary & Plumbing Work',
+      category: 'Real Completed Homes',
       location: 'Adimali, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_9.jpg',
-      scope: 'Main Switchgear, Heavy Load Distribution, Surge Protection',
-      tag: 'Electrical Work',
+      image: '/assets/images/completed_cloudinary/tezla_home_15.jpg',
+      scope: 'CPVC Water Piping Network, Concealed Shower Valves, Water Pressure',
+      year: '2026 Real Work',
     },
+
+    // Engineering & Commercial Albums (Generated High-Res Photos)
     {
       id: 10,
-      title: 'Commercial Office & Conference Automation',
+      title: 'Commercial Corporate Tech Office',
       category: 'Offices',
       location: 'Kattappana, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_10.jpg',
-      scope: 'Linear Ceiling LED Lighting, Glass Motion Sensor Controls',
-      tag: 'Completed Office',
+      image: '/assets/images/commercial_smart_office.jpg',
+      scope: 'Linear Ceiling LED Lighting, Motion Sensor Glass Partitions',
+      year: '2026 Enterprise',
     },
     {
       id: 11,
-      title: '4K CCTV & Security Control System',
-      category: 'Security',
+      title: '4K CCTV Security Command Center',
+      category: 'Security Command',
       location: 'Thodupuzha, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_11.jpg',
-      scope: 'Multi-Camera Video Wall, Remote Smartphone Stream, Alarm Sync',
-      tag: 'CCTV Security',
+      image: '/assets/images/completed_cctv_control.jpg',
+      scope: '32-Camera Video Wall, AI Human Breach Detection, Access Control',
+      year: '2026 Security',
     },
     {
       id: 12,
-      title: 'Thermostatic Luxury Bathroom Plumbing',
-      category: 'Plumbing',
-      location: 'Kumily, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_12.jpg',
-      scope: 'CPVC Hot/Cold Lines, Rain Shower Installation, Sanitary Fittings',
-      tag: 'Plumbing Work',
+      title: 'Heavy Electrical Automation Panel',
+      category: 'Electrical Engineering',
+      location: 'Adimali, Kerala',
+      image: '/assets/images/electrical_automation.jpg',
+      scope: 'Automated Circuit Switching, Energy Metering, DB Surge Protection',
+      year: '2025 Electrical',
     },
     {
       id: 13,
-      title: 'Modern Kitchen & Dining Smart Controls',
-      category: 'Homes',
-      location: 'Kattappana, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_13.jpg',
-      scope: 'Under-Cabinet Lighting, Smart Power Sockets, Appliance Automation',
-      tag: 'Completed Home',
-    },
-    {
-      id: 14,
-      title: 'Executive Villa Master Bedroom Tech',
-      category: 'Villas',
-      location: 'Munnar, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_14.jpg',
-      scope: 'Bedside Touch Control, Motorized Curtains, Night Motion Guide',
-      tag: 'Completed Villa',
-    },
-    {
-      id: 15,
-      title: 'High-Range Villa Electrical Infrastructure',
-      category: 'Electrical',
-      location: 'Kattappana, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_15.jpg',
-      scope: 'Concealed Conduit Wiring, Earthing Protection, Inverter Backup',
-      tag: 'Electrical Work',
-    },
-    {
-      id: 16,
-      title: 'Smart Security Gate & Digital Lock Entry',
-      category: 'Security',
-      location: 'Adimali, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_16.jpg',
-      scope: 'Biometric Gate Access, Video Intercom 2-Way Audio, CCTV',
-      tag: 'Access Security',
-    },
-    {
-      id: 17,
-      title: 'Luxury Estate Landscape & Pool Lighting',
-      category: 'Villas',
+      title: 'Thermostatic Luxury Bathroom Plumbing',
+      category: 'Plumbing Systems',
       location: 'Kumily, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_17.jpg',
-      scope: 'Submersible Underwater Pool Lights, Automated Garden Timers',
-      tag: 'Completed Villa',
-    },
-    {
-      id: 18,
-      title: 'Integrated Multi-Story Residence Engineering',
-      category: 'Homes',
-      location: 'Kattappana, Kerala',
-      image: '/assets/images/completed_cloudinary/tezla_home_18.jpg',
-      scope: 'Full Smart Home + Electrical Wiring + CCTV + Plumbing Engineering',
-      tag: 'Complete Residence',
+      image: '/assets/images/plumbing_engineering.jpg',
+      scope: 'Pressurized Hot/Cold Water Piping, Matte Black Sanitary Fittings',
+      year: '2025 Plumbing',
     },
   ];
 
   const filteredGallery = activeFilter === 'All'
-    ? completedCloudinaryHomes
-    : completedCloudinaryHomes.filter((item) => item.category === activeFilter);
+    ? completedGallery
+    : completedGallery.filter((item) => item.category === activeFilter);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -250,13 +213,13 @@ Hi TEZLA Team! I saw this completed project on your website portfolio and would 
   };
 
   return (
-    <section id="projects" className="py-16 sm:py-24 relative bg-[#070c1b] border-b border-slate-800 overflow-hidden">
+    <section id="projects" className="py-14 sm:py-24 relative bg-[#070c1b] border-b border-slate-800 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-4 font-['Outfit']">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-3 font-['Outfit']">
               <Sparkles className="w-3.5 h-3.5" />
               <span>TAILORED ENGINEERING PORTFOLIO</span>
             </div>
@@ -267,17 +230,17 @@ Hi TEZLA Team! I saw this completed project on your website portfolio and would 
           </div>
 
           {/* Carousel Controls */}
-          <div className="flex items-center gap-3 mt-6 md:mt-0">
+          <div className="flex items-center gap-2.5 mt-4 md:mt-0">
             <button
               onClick={() => scroll('left')}
-              className="p-3 rounded-full bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-all active:scale-95"
+              className="p-2.5 sm:p-3 rounded-full bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-all active:scale-95"
               aria-label="Scroll left"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="p-3 rounded-full bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-all active:scale-95"
+              className="p-2.5 sm:p-3 rounded-full bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition-all active:scale-95"
               aria-label="Scroll right"
             >
               <ChevronRight className="w-5 h-5" />
@@ -285,10 +248,10 @@ Hi TEZLA Team! I saw this completed project on your website portfolio and would 
           </div>
         </div>
 
-        {/* 1. Project Categories Carousel */}
+        {/* 1. Project Categories Carousel (Original Photos Restored) */}
         <div
           ref={scrollRef}
-          className="flex gap-4 sm:gap-6 overflow-x-auto pb-8 scrollbar-none snap-x snap-mandatory mb-16"
+          className="flex gap-4 sm:gap-6 overflow-x-auto pb-6 scrollbar-none snap-x snap-mandatory mb-16"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {projectsCategories.map((item, idx) => {
@@ -336,27 +299,27 @@ Hi TEZLA Team! I saw this completed project on your website portfolio and would 
           })}
         </div>
 
-        {/* 2. REAL COMPLETED HOMES & PROJECTS PHOTO GALLERY */}
+        {/* 2. REAL COMPLETED HOMES & ENGINEERING SHOWCASE */}
         <div className="pt-8 border-t border-slate-800/80">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-3 font-['Outfit']">
-              <span>REAL COMPLETED HOMES GALLERY</span>
+              <span>REAL COMPLETED HOMES & ALBUMS</span>
             </div>
 
             <h3 className="text-2xl sm:text-4xl font-black text-white font-['Outfit'] mb-3">
-              COMPLETED HOMES & <span className="text-gradient-cyan">WORK SHOWCASE</span>
+              COMPLETED HOMES & <span className="text-gradient-cyan">ENGINEERING PORTFOLIO</span>
             </h3>
-            <p className="text-xs sm:text-sm text-slate-300">
-              Browse real completed photos of luxury homes, villas, smart automation setups, electrical panels, and plumbing systems executed by TEZLA in Kerala.
+            <p className="text-xs sm:text-sm text-slate-300 px-2">
+              Browse actual project photos from 3 completed villa projects alongside corporate offices, CCTV control rooms, and plumbing infrastructure executed by TEZLA in Kerala.
             </p>
 
-            {/* Filter Buttons */}
+            {/* Category Filter Chips */}
             <div className="flex flex-wrap justify-center gap-2 mt-6">
-              {['All', 'Homes', 'Villas', 'Interiors', 'Electrical', 'Security', 'Plumbing'].map((cat) => (
+              {['All', 'Real Completed Homes', 'Offices', 'Security Command', 'Electrical Engineering', 'Plumbing Systems'].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveFilter(cat)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold font-['Outfit'] uppercase transition-all border ${
+                  className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs font-bold font-['Outfit'] uppercase transition-all border ${
                     activeFilter === cat
                       ? 'bg-emerald-500 text-black border-emerald-300 font-extrabold shadow-[0_0_15px_#25D366]'
                       : 'bg-slate-900/80 text-slate-300 border-slate-800 hover:border-emerald-500/30'
@@ -369,7 +332,7 @@ Hi TEZLA Team! I saw this completed project on your website portfolio and would 
           </div>
 
           {/* Photo Gallery Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
             {filteredGallery.map((item) => (
               <div
                 key={item.id}
@@ -396,7 +359,7 @@ Hi TEZLA Team! I saw this completed project on your website portfolio and would 
 
                 <div className="p-5">
                   <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-wider mb-1 font-bold">
-                    TEZLA COMPLETED WORK
+                    {item.year}
                   </div>
                   <h4 className="text-base sm:text-lg font-bold text-white font-['Outfit'] mb-2 group-hover:text-cyan-300 transition-colors">
                     {item.title}
@@ -410,7 +373,7 @@ Hi TEZLA Team! I saw this completed project on your website portfolio and would 
                       e.stopPropagation();
                       openWhatsAppForProject(item);
                     }}
-                    className="w-full py-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500 hover:text-black text-emerald-400 font-bold text-xs font-['Outfit'] uppercase transition-all flex items-center justify-center gap-1.5"
+                    className="w-full py-2.5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 hover:bg-emerald-500 hover:text-black text-emerald-400 font-bold text-xs font-['Outfit'] uppercase transition-all flex items-center justify-center gap-1.5"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
                     <span>INQUIRE VIA WHATSAPP</span>
@@ -449,7 +412,7 @@ Hi TEZLA Team! I saw this completed project on your website portfolio and would 
                 </h3>
                 <p className="text-xs text-emerald-400 font-semibold font-['Outfit'] flex items-center gap-1.5 mt-1">
                   <MapPin className="w-3.5 h-3.5" />
-                  <span>{activeLightboxImage.location} • TEZLA Completed Project</span>
+                  <span>{activeLightboxImage.location} • {activeLightboxImage.year}</span>
                 </p>
                 <p className="text-xs text-slate-300 mt-2">
                   {activeLightboxImage.scope}
